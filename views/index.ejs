@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <form action="/" id="form" class="form" method="post" enctype="application/x-www-form-urlencoded">
+        <h3>Latitude</h3>
+        <textarea name="latitude" class="form-textarea"></textarea>
+        <h3>Longitude</h3>
+        <textarea name="longitude" class="form-textarea"></textarea>
+        <button type="submit" class="form-submit">Check Weather</button>
+    </form>
+    <% if(locals.data && data.hourly && data.hourly.temperature_2m) { %>
+        <h2>First Forecast:</h2>
+        <p>Temperature: <%= data.hourly.temperature_2m[data.hourly.temperature_2m.length - 1] %> °C</p>
+        <% if(data.hourly.wind_speed_10m) { %>
+            <p>Wind Speed: <%= data.hourly.wind_speed_10m[data.hourly.wind_speed_10m.length - 1] %> km/h</p>
+        <% } %>
+    <% } else if (locals.error) { %>
+        <p><%= error %></p>
+    <% } else { %>
+        <p>No data available</p>
+    <% } %>
+</body>
+</html>

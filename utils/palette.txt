@@ -1,0 +1,8 @@
+Lightblue
+#14C6EB
+
+Red
+#E1341E
+
+Lighterblue
+#43D1EF
